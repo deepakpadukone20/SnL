@@ -1,0 +1,56 @@
+.cell{
+    list-style: none;
+    border: 1px solid #ababab;
+    border-radius: 4px;
+    float: left;
+    height: 30px;
+    margin-left:1%;
+}
+.peg {
+    background-color: blue;
+    width: 5px;
+    height: 5px;
+    border-radius: 30px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: b;
+    font-size: 12px;
+    text-decoration: none!important;
+    color: black!important;
+    border: 1px solid;
+}
+.toaster {
+    position: fixed;
+    top: 10px;
+    width:25% !important;
+    z-index: 50000;
+    height: 50%!important;
+    right: 45%!important;
+}
+.toaster .alert {
+    height: 100% !important;
+}
+.toaster .alert .message{
+    font-size: 50px;
+}
+@media (min-width: 576px){
+    .cell{
+        height: 40px;
+        
+    }
+    .peg {
+        border: 1px solid;
+        width: 15px;
+        height: 15px;
+    }
+}
+@media (min-width: 992px){
+    .cell{
+        height: 75px;
+    }
+    .peg {
+        border: 2px solid;
+        width: 25px;
+        height: 25px;
+    }
+}
