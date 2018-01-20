@@ -31,7 +31,8 @@ var Game = function(){
         container.empty();
         self.board = new Board(container,MAX_PLAYERS); 
     }
-    var play = function(player){
+    this.play = function(player){
+        player = (self.currentPlayer+1)%MAX_PLAYERS
         self.board.currentPlayer = player;
         self.currentPlayer = player;
         var val = rollDice();
@@ -74,14 +75,20 @@ var Game = function(){
         }
         return snakes[v] || ladder[v] || v;
     }
-    $("button.dice").on('click',function(){
-        play((self.currentPlayer+1)%MAX_PLAYERS);
-    });
+    this.destroy = function(){
+        $.toaster.reset();
+    }
+    
     init();
 }
-//new Game();
+var game;
+$("button.dice").on('click',function(){
+    game && game.play && game.play();
+});
+
 $(".new-game").on('click',function(){
-    new Game();
+    game && game.destroy();
+    game = new Game();
 })
 });
 
